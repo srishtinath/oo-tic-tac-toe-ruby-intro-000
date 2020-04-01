@@ -83,18 +83,18 @@ def full?
   @board.all? {|value| value == "X" || value == "O" }
 end
 
-def draw?(board)
-  if !won?(board) && full?(board)
+def draw?
+  if !won? && full?
     return true
   else
     return false
   end
 end
 
-def over?(board)
-  if won?(board) != false
+def over?
+  if won? != false
     return true
-  elsif draw?(board)
+  elsif draw?
     return true
   else
     return false
@@ -102,13 +102,11 @@ def over?(board)
 
 end
 
-def winner (board)
-  index = []
-  index = won?(board)
-  if index == false
+def winner
+  if won? == false
     return nil
   else
-    if board[index[0]] == "X"
+    if @board[won?[0]] == "X"
       return "X"
     else
       return "O"
