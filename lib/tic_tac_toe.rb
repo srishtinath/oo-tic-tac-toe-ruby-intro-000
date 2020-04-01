@@ -36,6 +36,27 @@ def position_taken?(index)
   !(@board[index].nil? || @board[index] == " ")
 end
 
+def valid_move?(index)
+  index.between?(0,8) && !position_taken?(@board,index)
+  end
+
+def turn
+  puts "Please choose a number 1-9:"
+  user_input = gets.chomp
+  index = input_to_index(user_input)
+
+  if valid_move?(index)
+    player_token = current_player(board)
+    move(index, player_token)
+    display_board
+  elsif valid_move?(index) == false
+    puts "Please enter valid number."
+    turn
+  else
+    turn
+  end
+end
+
 def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
