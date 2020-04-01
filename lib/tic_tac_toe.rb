@@ -65,5 +65,55 @@ def turn_count
   @board.count{|token| token == "X" || token == "O"}
 end
 
+def won?(board)
+  WIN_COMBINATIONS.each { |win_combination|
+    value_1 = board[win_combination[0]]
+    value_2 = board[win_combination[1]]
+    value_3 = board[win_combination[2]]
+
+      if (value_1 == "X" && value_2 == "X" && value_3 == "X") || (value_1 == "O" && value_2 == "O" && value_3 == "O")
+          return win_combination
+      end #close if statement
+
+  }
+  return false
+end
+
+def full?(board)
+  board.all? {|value| value == "X" || value == "O" }
+end
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) != false
+    return true
+  elsif draw?(board)
+    return true
+  else
+    return false
+  end
+
+end
+
+def winner (board)
+  index = []
+  index = won?(board)
+  if index == false
+    return nil
+  else
+    if board[index[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
 
 end
