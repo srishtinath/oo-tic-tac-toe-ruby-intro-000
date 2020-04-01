@@ -42,14 +42,13 @@ def valid_move?(index)
 
 def turn
   puts "Please choose a number 1-9:"
-  user_input = gets.chomp
+  user_input = gets.strip
   index = input_to_index(user_input)
 
   if valid_move?(index)
-    player_token = current_player(board)
-    move(index, player_token)
+    move(index, current_player)
     display_board
-  elsif valid_move?(index) == false
+  elsif !valid_move?(index)
     puts "Please enter valid number."
     turn
   else
