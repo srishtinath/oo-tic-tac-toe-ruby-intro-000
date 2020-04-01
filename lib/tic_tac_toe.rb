@@ -79,8 +79,8 @@ def won?
   return false
 end
 
-def full?(board)
-  board.all? {|value| value == "X" || value == "O" }
+def full?
+  @board.all? {|value| value == "X" || value == "O" }
 end
 
 def draw?(board)
