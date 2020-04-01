@@ -32,6 +32,9 @@ def move(index, token = "X")
   return @board
 end
 
+def position_taken?(index)
+  !(@board[index].nil? || @board[index] == " ")
+end
 
 def current_player
     turn_count % 2 == 0 ? "X" : "O"
