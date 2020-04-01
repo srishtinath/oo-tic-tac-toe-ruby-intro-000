@@ -66,9 +66,9 @@ end
 
 def won?
   WIN_COMBINATIONS.each { |win_combination|
-    value_1 = board[win_combination[0]]
-    value_2 = board[win_combination[1]]
-    value_3 = board[win_combination[2]]
+    value_1 = @board[win_combination[0]]
+    value_2 = @board[win_combination[1]]
+    value_3 = @board[win_combination[2]]
 
       if (value_1 == "X" && value_2 == "X" && value_3 == "X") || (value_1 == "O" && value_2 == "O" && value_3 == "O")
           return win_combination
