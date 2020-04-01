@@ -65,7 +65,7 @@ def turn_count
   @board.count{|token| token == "X" || token == "O"}
 end
 
-def won?(board)
+def won?
   WIN_COMBINATIONS.each { |win_combination|
     value_1 = board[win_combination[0]]
     value_2 = board[win_combination[1]]
