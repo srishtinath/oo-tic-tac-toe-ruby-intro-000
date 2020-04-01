@@ -23,6 +23,10 @@ def display_board
   puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
 end
 
+def input_to_index(input)
+  input.to_i - 1
+end
+
 def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
